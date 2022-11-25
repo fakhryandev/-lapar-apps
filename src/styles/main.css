@@ -1,3 +1,216 @@
-img {
-  display: block;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+body {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+  App Bar
+ */
+
+.app-bar {
+  padding: 8px 16px;
+  display: grid;
+  background-color: white;
+  grid-template-columns: auto 2fr auto;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.app-bar .app-bar__menu {
+  display: flex;
+  align-items: center;
+}
+
+.app-bar .app-bar__menu button {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.app-bar .app-bar__brand {
+  display: flex;
+  align-items: center;
+}
+
+.app-bar .app-bar__navigation {
+  position: absolute;
+  top: 50px;
+  left: -180px;
+  width: 150px;
+  transition: all 0.3s;
+  padding: 8px;
+  background-color: wheat;
+  overflow: hidden;
+}
+
+.app-bar .app-bar__navigation.open {
+  left: 0;
+}
+
+.app-bar .app-bar__navigation ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  padding: 8px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+/* 
+  Main Content
+*/
+
+main {
+  padding: 15px 5px;
+}
+
+.content {
+  min-height: 100%;
+}
+
+.content .content__heading {
+  text-align: center;
+  font-weight: normal;
+}
+
+/* 
+  Hero
+ */
+.hero {
+  margin: 0 auto;
+}
+
+.hero img {
+  width: 100%;
+}
+
+/* 
+  Restaurants
+*/
+
+.restaurants {
+  padding: 15px;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: 1fr;
+}
+
+/* 
+  Restaurant
+*/
+
+.restaurant-item {
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.restaurant-item__header {
+  position: relative;
+}
+
+.restaurant-item .restaurant-item__header .restaurant-item__header__poster {
+  width: 100%;
+}
+
+.restaurant-item .restaurant-item__content {
+  padding: 10px 15px 15px 15px;
+  margin-top: -7px;
+}
+
+.restaurant-item .restaurant-item__content h3 {
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.restaurant-item .restaurant-item__content p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+/*
+  Footer
+*/
+
+footer {
+  padding: 16px 0;
+  box-shadow: 0px -2px 4px 0 rgb(0 0 0 / 20%);
+}
+
+footer p {
+  text-align: center;
+  color: #aaaaaa;
+}
+
+/* .app-bar .app-bar__navigation {
+  position: absolute;
+  top: 50px;
+  left: -180px;
+  width: 150px;
+  transition: all 0.3s;
+  padding: 8px;
+  background-color: wheat;
+  overflow: hidden;
+}
+
+.app-bar .app-bar__navigation ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  padding: 8px;
+  margin-bottom: 5px;
+  width: 100%;
+} */
+
+/* .container {
+  max-width: 1100px;
+  text-align: center;
+  margin: auto;
+} */
+
+/* Navbar */
+
+/* nav {
+  width: 100%;
+  background-color: black;
+}
+
+.nav__bar {
+  display: grid;
+  min-height: 60px;
+  height: auto;
+  color: white;
+}
+
+.nav__bar a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav__menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.nav__menu > li {
+  padding: 20px;
+} */
