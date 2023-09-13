@@ -1,36 +1,18 @@
 import 'regenerator-runtime' /* for async await transpile */
 import '../styles/main.css'
 import '../styles/responsive.css'
-import Data from '../DATA.json'
+import App from './views/app'
 
-const hamburgerButtonElement = document.querySelector('#hamburgerButton')
-const drawerElement = document.querySelector('.app-bar .app-bar__navigation')
-const mainElement = document.querySelector('#mainContent')
-const data = Data.restaurants
-
-hamburgerButtonElement.addEventListener('click', (event) => {
-    drawerElement.classList.toggle('open')
-    event.stopPropagation()
+const app = new App({
+    button: document.querySelector('#hamburgerButton'),
+    drawer: document.querySelector('.app-bar .app-bar__navigation'),
+    content: document.querySelector('#mainContent'),
 })
 
-mainElement.addEventListener('click', (event) => {
-    drawerElement.classList.remove('open')
-    event.stopPropagation()
+window.addEventListener('hashchange', () => {
+    app.renderPage()
 })
 
-data.forEach((item) => {
-    document.querySelector('.restaurants').innerHTML += `
-    <div class="restaurant-item">
-        <div class="restaurant-item__header">
-            <img src="${item.pictureId}"
-                alt="${item.name} photos"
-                class="restaurant-item__header__poster"/>
-        </div>
-        <div class="restaurant-item__content">
-            <h3>${item.name}, ${item.city}</h3>
-            <p>
-                ${item.description}
-            </p>
-          </div>
-    <div>`
+window.addEventListener('load', () => {
+    app.renderPage()
 })
