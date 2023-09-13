@@ -12,6 +12,25 @@ body {
 }
 
 /* 
+  Skip to content
+*/
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 8px;
+  background-color: #4d4c4cb8;
+  color: white;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 75px;
+  left: 30px;
+}
+
+/* 
   App Bar
  */
 
@@ -35,9 +54,11 @@ body {
 .app-bar .app-bar__menu button {
   background-color: transparent;
   border: none;
-  font-size: 18px;
+  font-size: 22px;
   padding: 8px;
   cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .app-bar .app-bar__brand {
@@ -67,6 +88,8 @@ body {
   padding: 8px;
   margin-bottom: 5px;
   width: 100%;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 /* 
@@ -89,9 +112,6 @@ main {
 /* 
   Hero
  */
-.hero {
-  margin: 0 auto;
-}
 
 .hero img {
   width: 100%;
@@ -125,6 +145,7 @@ main {
 
 .restaurant-item .restaurant-item__header .restaurant-item__header__poster {
   width: 100%;
+  height: 200px;
 }
 
 .restaurant-item .restaurant-item__content {
@@ -158,59 +179,3 @@ footer p {
   text-align: center;
   color: #aaaaaa;
 }
-
-/* .app-bar .app-bar__navigation {
-  position: absolute;
-  top: 50px;
-  left: -180px;
-  width: 150px;
-  transition: all 0.3s;
-  padding: 8px;
-  background-color: wheat;
-  overflow: hidden;
-}
-
-.app-bar .app-bar__navigation ul li a {
-  display: inline-block;
-  text-decoration: none;
-  color: black;
-  padding: 8px;
-  margin-bottom: 5px;
-  width: 100%;
-} */
-
-/* .container {
-  max-width: 1100px;
-  text-align: center;
-  margin: auto;
-} */
-
-/* Navbar */
-
-/* nav {
-  width: 100%;
-  background-color: black;
-}
-
-.nav__bar {
-  display: grid;
-  min-height: 60px;
-  height: auto;
-  color: white;
-}
-
-.nav__bar a {
-  color: white;
-  text-decoration: none;
-}
-
-.nav__menu {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  list-style: none;
-}
-
-.nav__menu > li {
-  padding: 20px;
-} */

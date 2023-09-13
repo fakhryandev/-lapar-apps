@@ -23,11 +23,11 @@ data.forEach((item, index) => {
     <div class="restaurant-item">
         <div class="restaurant-item__header">
             <img src="${item.pictureId}"
-                alt="Test"
+                alt="${item.name} photos"
                 class="restaurant-item__header__poster"/>
         </div>
         <div class="restaurant-item__content">
-            <h3>${item.city}</h3>
+            <h3>${item.name}, ${item.city}</h3>
             <p>
                 ${item.description}
             </p>
