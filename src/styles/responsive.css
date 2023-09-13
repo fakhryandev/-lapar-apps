@@ -1,86 +1,86 @@
 @media screen and (min-width: 650px) {
-  .app-bar {
-    grid-template-columns: 1fr auto;
-    padding: 8px 32px;
-  }
+    .app-bar {
+        grid-template-columns: 1fr auto;
+        padding: 8px 32px;
+    }
 
-  .app-bar .app-bar__brand h1 {
-    font-size: 1.5em;
-  }
+    .app-bar .app-bar__brand h1 {
+        font-size: 1.5em;
+    }
 
-  .app-bar .app-bar__menu {
-    display: none;
-  }
+    .app-bar .app-bar__menu {
+        display: none;
+    }
 
-  .app-bar .app-bar__navigation {
-    position: static;
-    width: 100%;
-    background-color: white;
-  }
+    .app-bar .app-bar__navigation {
+        position: static;
+        width: 100%;
+        background-color: white;
+    }
 
-  .app-bar .app-bar__navigation ul li {
-    display: inline-block;
-  }
+    .app-bar .app-bar__navigation ul li {
+        display: inline-block;
+    }
 
-  .app-bar .app-bar__navigation ul li a {
-    display: inline-block;
-    width: 120px;
-    text-align: center;
-    margin: 0;
-  }
+    .app-bar .app-bar__navigation ul li a {
+        display: inline-block;
+        width: 120px;
+        text-align: center;
+        margin: 0;
+    }
 
-  .hero {
-    display: flex;
-    justify-content: center;
-  }
+    .hero {
+        display: flex;
+        justify-content: center;
+    }
 
-  .hero img {
-    height: 450px;
-  }
+    .hero img {
+        height: 450px;
+    }
 
-  .restaurants {
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
+    .restaurants {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
 }
 
 @media screen and (min-width: 800px) {
-  .app-bar .app-bar__brand h1 {
-    font-size: 2em;
-  }
+    .app-bar .app-bar__brand h1 {
+        font-size: 2em;
+    }
 
-  .hero img {
-    height: 350px;
-    object-fit: cover;
-  }
+    .hero img {
+        height: 350px;
+        object-fit: cover;
+    }
 }
 
 @media screen and (min-width: 850px) {
-  .restaurants {
-    grid-template-columns: repeat(3, 1fr);
-  }
+    .restaurants {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 @media screen and (min-width: 1200px) {
-  .restaurants {
-    grid-template-columns: repeat(4, 1fr);
-  }
+    .restaurants {
+        grid-template-columns: repeat(4, 1fr);
+    }
 
-  .hero img {
-    min-width: 1000px;
-    height: 450px;
-    object-fit: cover;
-  }
+    .hero img {
+        min-width: 1000px;
+        height: 450px;
+        object-fit: cover;
+    }
 }
 
 @media screen and (min-width: 1600px) {
-  .restaurants {
-    grid-template-columns: repeat(5, 1fr);
-  }
+    .restaurants {
+        grid-template-columns: repeat(5, 1fr);
+    }
 
-  .hero img {
-    object-fit: cover;
-    height: 550px;
-    min-width: 1300px;
-  }
+    .hero img {
+        object-fit: cover;
+        height: 550px;
+        min-width: 1300px;
+    }
 }

@@ -1,25 +1,25 @@
-import "regenerator-runtime"; /* for async await transpile */
-import "../styles/main.css";
-import "../styles/responsive.css";
-import Data from "../DATA.json";
+import 'regenerator-runtime' /* for async await transpile */
+import '../styles/main.css'
+import '../styles/responsive.css'
+import Data from '../DATA.json'
 
-const hamburgerButtonElement = document.querySelector("#hamburgerButton");
-const drawerElement = document.querySelector(".app-bar .app-bar__navigation");
-const mainElement = document.querySelector("#mainContent");
-const data = Data.restaurants;
+const hamburgerButtonElement = document.querySelector('#hamburgerButton')
+const drawerElement = document.querySelector('.app-bar .app-bar__navigation')
+const mainElement = document.querySelector('#mainContent')
+const data = Data.restaurants
 
-hamburgerButtonElement.addEventListener("click", (event) => {
-  drawerElement.classList.toggle("open");
-  event.stopPropagation();
-});
+hamburgerButtonElement.addEventListener('click', (event) => {
+    drawerElement.classList.toggle('open')
+    event.stopPropagation()
+})
 
-mainElement.addEventListener("click", (event) => {
-  drawerElement.classList.remove("open");
-  event.stopPropagation();
-});
+mainElement.addEventListener('click', (event) => {
+    drawerElement.classList.remove('open')
+    event.stopPropagation()
+})
 
-data.forEach((item, index) => {
-  document.querySelector(".restaurants").innerHTML += `
+data.forEach((item) => {
+    document.querySelector('.restaurants').innerHTML += `
     <div class="restaurant-item">
         <div class="restaurant-item__header">
             <img src="${item.pictureId}"
@@ -32,5 +32,5 @@ data.forEach((item, index) => {
                 ${item.description}
             </p>
           </div>
-    <div>`;
-});
+    <div>`
+})
