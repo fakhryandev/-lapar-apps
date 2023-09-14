@@ -13,10 +13,10 @@ const Home = {
 
     async afterRender() {
         const restaurants = await TheRestaurantDbSource.restaurants()
-        const restaurantContainer = document.querySelector('.restaurants')
+        const restaurantsContainer = document.querySelector('.restaurants')
 
         restaurants.forEach((restaurant) => {
-            restaurantContainer.innerHTML +=
+            restaurantsContainer.innerHTML +=
                 createRestaurantItemTemplate(restaurant)
         })
     },

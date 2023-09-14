@@ -1,5 +1,9 @@
 import CONFIG from '../../globals/config'
 
+const createRestaurantDetailTemplate = (restaurant) => `
+    <p>${restaurant.name}</p>
+`
+
 const createRestaurantItemTemplate = (restaurant) => `
     <div class="restaurant-item">
         <div class="restaurant-item__header">
@@ -19,5 +23,15 @@ const createRestaurantItemTemplate = (restaurant) => `
         </div>
     <div>
 `
-
-export { createRestaurantItemTemplate }
+const createFavoriteButtonTemplate = () => `
+    <button id="favoriteButton">Favorite</button>
+`
+const createFavoritedButtonTemplate = () => `
+    <button id="favoriteButton">Favorited</button>
+`
+export {
+    createRestaurantItemTemplate,
+    createRestaurantDetailTemplate,
+    createFavoriteButtonTemplate,
+    createFavoritedButtonTemplate,
+}
