@@ -38,9 +38,28 @@
         height: 450px;
     }
 
+    .content .content__heading {
+        padding: 15px 0;
+    }
+
     .restaurants {
         grid-template-columns: 1fr 1fr;
-        gap: 16px;
+        column-gap: 30px;
+        row-gap: 36px;
+    }
+
+    .restaurant {
+        padding: 0px;
+    }
+
+    .restaurant-header .restaurant__rating {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .restaurant-content .restaurant-content__poster {
+        width: 100%;
+        height: 350px;
     }
 }
 
@@ -58,6 +77,17 @@
 @media screen and (min-width: 850px) {
     .restaurants {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .restaurant-content .restaurant-content__poster {
+        max-width: 740px;
+        height: 400px;
+    }
+
+    .restaurant-content__menu {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 8px;
     }
 }
 

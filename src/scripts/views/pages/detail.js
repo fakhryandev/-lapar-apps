@@ -6,8 +6,8 @@ import { createRestaurantDetailTemplate } from '../templates/template-creator'
 const Detail = {
     async render() {
         return `
-            <div id="restaurant" class="restaurant"></div>
-            <div id="favoriteButtonContainer"></div>
+            <h1 class='title'>Detail Restaurant</h1>
+            <div class="restaurant"></div>
         `
     },
     async afterRender() {
@@ -15,14 +15,14 @@ const Detail = {
         const { restaurant } = await TheRestaurantDbSource.detailRestaurant(
             url.id
         )
-        const restaurantContainer = document.querySelector('#restaurant')
-        const favoriteButtonContainer = document.querySelector(
-            '#favoriteButtonContainer'
-        )
+        const restaurantContainer = document.querySelector('.restaurant')
 
         restaurantContainer.innerHTML +=
             createRestaurantDetailTemplate(restaurant)
 
+        const favoriteButtonContainer = document.querySelector(
+            '#favoriteButtonContainer'
+        )
         FavoriteButtonInitiator.init({
             favoriteButtonContainer,
             restaurant,
