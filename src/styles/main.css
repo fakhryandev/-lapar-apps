@@ -183,12 +183,14 @@ main {
     text-align: center;
 }
 
-.restaurant-item .restaurant-item__content h3 a {
+.restaurant-item .restaurant-item__content .restaurant-item__link {
     text-decoration: none;
     color: #000000;
+    display: inline-block;
+    height: 44px;
 }
 
-.restaurant-item .restaurant-item__content h3 a:hover {
+.restaurant-item .restaurant-item__content .restaurant-item__link:hover {
     cursor: pointer;
     color: #ffc436;
 }
