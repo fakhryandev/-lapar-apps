@@ -1,4 +1,6 @@
 import CONFIG from '../../globals/config'
+import 'lazysizes'
+import 'lazysizes/plugins/parent-fit/ls.parent-fit'
 
 const createRestaurantDetailTemplate = ({
     name,
@@ -22,13 +24,30 @@ const createRestaurantDetailTemplate = ({
         </span>
     </div>
     <div class='restaurant-content'>
-        <img src=${
-            pictureId
-                ? CONFIG.BASE_IMAGE_URL + pictureId
-                : 'https://picsum.photos/id/666/800/450?grayscale'
-        }
-            alt="${name} photos"
-            class="restaurant-content__poster"/>
+        <picture>
+            <source media="(max-width: 600px)" srcset=${
+                pictureId
+                    ? CONFIG.BASE_IMAGE_URL_SMALL + pictureId
+                    : 'https://picsum.photos/id/666/800/450?grayscale'
+            }>
+            <source media="(max-width: 1100px)" srcset=${
+                pictureId
+                    ? CONFIG.BASE_IMAGE_URL_MEDIUM + pictureId
+                    : 'https://picsum.photos/id/666/800/450?grayscale'
+            }>
+            <source media="(min-width: 1200px)" srcset=${
+                pictureId
+                    ? CONFIG.BASE_IMAGE_URL_LARGE + pictureId
+                    : 'https://picsum.photos/id/666/800/450?grayscale'
+            }>
+            <img src=${
+                pictureId
+                    ? CONFIG.BASE_IMAGE_URL_MEDIUM + pictureId
+                    : 'https://picsum.photos/id/666/800/450?grayscale'
+            }
+                alt="${name} photos"
+                class="restaurant-content__poster"/>
+        </picture>
         <div id="favoriteButtonContainer"></div>
         <h2>Overview</h2>
         <p class='restaurant-content__description'>${description}</p>
@@ -76,13 +95,30 @@ const createRestaurantDetailTemplate = ({
 const createRestaurantItemTemplate = (restaurant) => `
     <div class="restaurant-item">
         <div class="restaurant-item__header">
-            <img src=${
-                restaurant.pictureId
-                    ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId
-                    : 'https://picsum.photos/id/666/800/450?grayscale'
-            }
+            <picture>
+                <source media="(max-width: 600px)" srcset=${
+                    restaurant.pictureId
+                        ? CONFIG.BASE_IMAGE_URL_SMALL + restaurant.pictureId
+                        : 'https://picsum.photos/id/666/800/450?grayscale'
+                }>
+                <source media="(max-width: 1100px)" srcset=${
+                    restaurant.pictureId
+                        ? CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId
+                        : 'https://picsum.photos/id/666/800/450?grayscale'
+                }>
+                <source media="(min-width: 1200px)" srcset=${
+                    restaurant.pictureId
+                        ? CONFIG.BASE_IMAGE_URL_LARGE + restaurant.pictureId
+                        : 'https://picsum.photos/id/666/800/450?grayscale'
+                }>
+                <img data-src=${
+                    restaurant.pictureId
+                        ? CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId
+                        : 'https://picsum.photos/id/666/800/450?grayscale'
+                }
                 alt="${restaurant.name} photos"
-                class="restaurant-item__header__poster"/>
+                class="lazyload restaurant-item__header__poster"/>
+            </picture>
         </div>
         <div class="restaurant-item__content">
             <h3>
@@ -96,19 +132,19 @@ const createRestaurantItemTemplate = (restaurant) => `
         </div>
     </div>
 `
-const createFavoriteButtonTemplate = () => `
-    <button class='btn__favorite btn__favorite--favorite' id="favoriteButton">
+const createFavoriteRestaurantButtonTemplate = () => `
+    <button class='btn__favorite btn__favorite--favorite' id="favoriteButton" aria-label="favorite this restaurant">
         <i class="fa fa-heart-o" aria-hidden="true"></i>
     </button>
 `
-const createFavoritedButtonTemplate = () => `
-    <button class='btn__favorite btn__favorite--unfavorite' id="favoriteButton">
+const createUnfavoriteRestaurantButtonTemplate = () => `
+    <button class='btn__favorite btn__favorite--unfavorite' id="favoriteButton" aria-label="unfavorite this restaurant">
         <i class="fa fa-heart" aria-hidden="true"></i>
     </button>
 `
 export {
     createRestaurantItemTemplate,
     createRestaurantDetailTemplate,
-    createFavoriteButtonTemplate,
-    createFavoritedButtonTemplate,
+    createFavoriteRestaurantButtonTemplate,
+    createUnfavoriteRestaurantButtonTemplate,
 }

@@ -138,8 +138,10 @@ main {
   Hero
  */
 
-.hero img {
+.hero img,
+.hero picture {
     width: 100%;
+    height: 100%;
 }
 
 /* 

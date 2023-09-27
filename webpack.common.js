@@ -2,6 +2,9 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
+const { default: ImageminWebpackPlugin } = require('imagemin-webpack-plugin')
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
+const imageminMozjpeg = require('imagemin-mozjpeg')
 
 module.exports = {
     entry: {
@@ -63,7 +66,46 @@ module.exports = {
                         cacheName: 'restaurant-image-api',
                     },
                 },
+                {
+                    urlPattern: ({ url }) =>
+                        url.href.startsWith(
+                            'https://restaurant-api.dicoding.dev/images/small/'
+                        ),
+                    handler: 'StaleWhileRevalidate',
+                    options: {
+                        cacheName: 'restaurant-image-api',
+                    },
+                },
+                {
+                    urlPattern: ({ url }) =>
+                        url.href.startsWith(
+                            'https://restaurant-api.dicoding.dev/images/large/'
+                        ),
+                    handler: 'StaleWhileRevalidate',
+                    options: {
+                        cacheName: 'restaurant-image-api',
+                    },
+                },
             ],
+        }),
+        new ImageminWebpackPlugin({
+            plugins: [
+                imageminMozjpeg({
+                    quality: 60,
+                    progressive: true,
+                }),
+            ],
+        }),
+        new ImageminWebpWebpackPlugin({
+            config: [
+                {
+                    test: /\.(jpe?g|png)/,
+                    options: {
+                        quality: 60,
+                    },
+                },
+            ],
+            overrideExtension: true,
         }),
     ],
 }
