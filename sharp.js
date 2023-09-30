@@ -11,7 +11,7 @@ if (!fs.existsSync(destination)) {
 
 fs.readdirSync(target).forEach((image) => {
     sharp(`${target}/${image}`)
-        .resize(860)
+        .resize(1286)
         .toFile(
             path.resolve(
                 __dirname,

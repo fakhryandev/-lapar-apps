@@ -5,6 +5,8 @@ const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 const { default: ImageminWebpackPlugin } = require('imagemin-webpack-plugin')
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 const imageminMozjpeg = require('imagemin-mozjpeg')
+const BundleAnalyzerPlugin =
+    require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
     entry: {
@@ -30,11 +32,35 @@ module.exports = {
             },
         ],
     },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            minSize: 20000,
+            maxSize: 70000,
+            minChunks: 1,
+            maxAsyncRequests: 30,
+            maxInitialRequests: 30,
+            automaticNameDelimiter: '~',
+            enforceSizeThreshold: 50000,
+            cacheGroups: {
+                defaultVendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    priority: -10,
+                },
+                default: {
+                    minChunks: 2,
+                    priority: -20,
+                    reuseExistingChunk: true,
+                },
+            },
+        },
+    },
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.resolve(__dirname, 'src/templates/index.html'),
         }),
+        new BundleAnalyzerPlugin(),
         new CopyWebpackPlugin({
             patterns: [
                 {
@@ -91,7 +117,7 @@ module.exports = {
         new ImageminWebpackPlugin({
             plugins: [
                 imageminMozjpeg({
-                    quality: 60,
+                    quality: 80,
                     progressive: true,
                 }),
             ],
@@ -101,7 +127,7 @@ module.exports = {
                 {
                     test: /\.(jpe?g|png)/,
                     options: {
-                        quality: 60,
+                        quality: 70,
                     },
                 },
             ],

@@ -35,11 +35,6 @@ const createRestaurantDetailTemplate = ({
                     ? CONFIG.BASE_IMAGE_URL_MEDIUM + pictureId
                     : 'https://picsum.photos/id/666/800/450?grayscale'
             }>
-            <source media="(min-width: 1200px)" srcset=${
-                pictureId
-                    ? CONFIG.BASE_IMAGE_URL_LARGE + pictureId
-                    : 'https://picsum.photos/id/666/800/450?grayscale'
-            }>
             <img src=${
                 pictureId
                     ? CONFIG.BASE_IMAGE_URL_MEDIUM + pictureId
@@ -96,19 +91,14 @@ const createRestaurantItemTemplate = (restaurant) => `
     <div class="restaurant-item">
         <div class="restaurant-item__header">
             <picture>
-                <source media="(max-width: 600px)" srcset=${
+                <source media="(max-width: 600px)" data-srcset=${
                     restaurant.pictureId
                         ? CONFIG.BASE_IMAGE_URL_SMALL + restaurant.pictureId
                         : 'https://picsum.photos/id/666/800/450?grayscale'
                 }>
-                <source media="(max-width: 1100px)" srcset=${
+                <source media="(max-width: 1100px)" data-srcset=${
                     restaurant.pictureId
                         ? CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId
-                        : 'https://picsum.photos/id/666/800/450?grayscale'
-                }>
-                <source media="(min-width: 1200px)" srcset=${
-                    restaurant.pictureId
-                        ? CONFIG.BASE_IMAGE_URL_LARGE + restaurant.pictureId
                         : 'https://picsum.photos/id/666/800/450?grayscale'
                 }>
                 <img data-src=${

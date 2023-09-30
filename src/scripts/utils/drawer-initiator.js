@@ -1,5 +1,12 @@
 const DrawerInitiator = {
     init({ button, drawer, content }) {
+        const navigations = document.querySelectorAll('.app-bar__navigation')
+        navigations.forEach((nav) => {
+            nav.addEventListener('click', () => {
+                drawer.classList.remove('open')
+            })
+        })
+
         button.addEventListener('click', (event) => {
             this._toggleDrawer(event, drawer)
         })

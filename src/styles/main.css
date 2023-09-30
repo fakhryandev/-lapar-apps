@@ -173,6 +173,7 @@ main {
 .restaurant-item .restaurant-item__header .restaurant-item__header__poster {
     width: 100%;
     height: 200px;
+    object-fit: cover;
 }
 
 .restaurant-item .restaurant-item__content {
